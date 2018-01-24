@@ -10,4 +10,13 @@
 
 #include <iostream>
 
+namespace nts
+{
+	enum Tristate {
+		UNDEFINED = (-true),
+		TRUE = true,
+		FALSE = false
+	};
+}
+
 #endif /* !NTS_HPP_ */

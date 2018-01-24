@@ -7,7 +7,7 @@
 
 CC	=	g++
 
-CXXFLAGS  =	-pedantic -W -Wall -Wall -Wextra -Iinclude/ -g3
+CXXFLAGS  =	-pedantic -W -Wall -Wall -Wextra -std=c++14 -Iinclude/ -g3
 
 LXXFLAGS	=
 
@@ -17,7 +17,10 @@ RM	=	rm -f
 
 SRCDIR	=	src
 
-SRC	=	main.cpp
+SRC	=	main.cpp				\
+		Components/Component.cpp		\
+		Components/Component4001.cpp		\
+		Components/Component4081.cpp
 
 SRC	:=	$(addprefix $(SRCDIR)/, $(SRC))
 
