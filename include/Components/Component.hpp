@@ -16,16 +16,16 @@ namespace nts
 	class Component : public nts::IComponent
 	{
 		public:
-		Component(const std::string &model);
+		Component(const std::string &model, const std::string &value);
 		virtual ~Component();
+
+		nts::Tristate compute(std::size_t pin = 1);
+		void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin);
+		void dump() const;
 
 		protected:
 		const std::string model;
-
-		private:
-		virtual nts::Tristate compute(std::size_t pin = 1) = 0;
-		virtual void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin) = 0;
-		virtual void dump() const = 0;
+		std::string value;
 	};
 }
 

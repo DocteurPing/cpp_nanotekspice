@@ -15,13 +15,8 @@ namespace nts
 	class Component4081 : public nts::Component
 	{
 		public:
-		Component4081();
+		Component4081(const std::string &value);
 		~Component4081();
-
-		private:
-		nts::Tristate compute(std::size_t pin = 1);
-		void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin);
-		void dump() const;
 	};
 }
 
