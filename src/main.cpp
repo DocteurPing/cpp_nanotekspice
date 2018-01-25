@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 	Parser p(argv[1]);
 
 	p.getChipset();
+	p.getLinks();
 	/* while ((line = p.getline()) != "")
 	{
 		std::cout << "Line: " << line << std::endl;

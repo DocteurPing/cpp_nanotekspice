@@ -19,6 +19,7 @@ class Parser {
 	Parser(const std::string &file);
 	~Parser();
 	std::string getChipset();
+	std::string getLinks();
 
 	private:
 	std::string getline();

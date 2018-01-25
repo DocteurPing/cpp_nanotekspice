@@ -30,7 +30,7 @@ std::string Parser::getline()
 		pos = line.find("#");
 		if (pos != std::string::npos)
 			line = line.substr(0, pos);
-			size_t size = line.size();
+		size_t size = line.size();
 
 		std::replace(line.begin(), line.end(), '\t', ' ');
 		while (it < size)
@@ -44,7 +44,6 @@ std::string Parser::getline()
 			else
 				++it;
 		}
-		//std::remove_if(line.begin(), line.end(), isspace);
 		if (line.size() != 0)
 			break;
 	}
@@ -56,7 +55,16 @@ std::string Parser::getChipset()
 	std::string str;
 
 	while (((str = this->getline()) != "") && (str != ".chipsets:"));
-	while ((str = this->getline()) != "" && str != ".links:")
+	while ((str = this->getline()) != "" && str != ".links:");
+		//std::cout << str << std::endl;
+	//return (line)
+}
+
+std::string Parser::getLinks()
+{
+	std::string str;
+
+	while ((str = this->getline()) != "")
 		std::cout << str << std::endl;
 	//return (line)
 }
