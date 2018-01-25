@@ -23,6 +23,7 @@ nts::ComponentManager::ComponentManager()
 	this->createMap["4094"] = &nts::ComponentManager::create4094;
 	this->createMap["4514"] = &nts::ComponentManager::create4514;
 	this->createMap["4801"] = &nts::ComponentManager::create4801;
+	this->createMap["input"] = &nts::ComponentManager::createInput;
 }
 
 nts::ComponentManager::~ComponentManager()
@@ -120,4 +121,12 @@ nts::ComponentManager::ComponentPtr nts::ComponentManager::create4801(
 	const std::string &value) const noexcept
 {
 	return (static_cast<ComponentPtr>(std::make_unique<Component4801>(value)));
+}
+
+nts::ComponentManager::ComponentPtr nts::ComponentManager::createInput(
+	const std::string &value) const noexcept
+{
+	return (static_cast<ComponentPtr>(std::make_unique<ComponentInput>(
+		static_cast<unsigned int>(std::stoul(value))))
+	);
 }

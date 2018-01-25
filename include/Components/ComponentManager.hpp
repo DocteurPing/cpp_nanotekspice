@@ -25,6 +25,7 @@
 #include "Components/Component4094.hpp"
 #include "Components/Component4514.hpp"
 #include "Components/Component4801.hpp"
+#include "Components/ComponentInput.hpp"
 
 namespace nts
 {
@@ -52,6 +53,7 @@ namespace nts
 		ComponentPtr create4094(const std::string &value) const noexcept;
 		ComponentPtr create4514(const std::string &value) const noexcept;
 		ComponentPtr create4801(const std::string &value) const noexcept;
+		ComponentPtr createInput(const std::string &value) const noexcept;
 
 		std::unordered_map<
 			std::string,

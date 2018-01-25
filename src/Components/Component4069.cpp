@@ -7,7 +7,8 @@
 
 #include "Components/Component4069.hpp"
 
-nts::Component4069::Component4069(const std::string &value) : Component("4069", value)
+nts::Component4069::Component4069(const std::string &value)
+	: Component("4069", "Chipset")
 {
 }
 

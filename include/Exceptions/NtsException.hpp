@@ -5,6 +5,9 @@
 ** NtsException
 */
 
+#ifndef NTSEXCEPTION_HPP_
+	#define NTSEXCEPTION_HPP_
+
 #include <string>
 #include <exception>
 
@@ -21,3 +24,5 @@ class NtsException : public std::exception
 	std::string _what;
 	std::string _where;
 };
+
+#endif /* !NTSEXCEPTION_HPP_ */
