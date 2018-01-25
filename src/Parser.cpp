@@ -47,24 +47,9 @@ std::string Parser::getline()
 		if (line.size() != 0)
 			break;
 	}
+	if (line == ".chipsets:")
+		this->section = CHIPSETS;
+	if (line == ".links:")
+		this->section = LINKS;
 	return (line);
-}
-
-void Parser::getChipset()
-{
-	std::string str;
-
-	while (((str = this->getline()) != "") && (str != ".chipsets:"));
-	while ((str = this->getline()) != "" && str != ".links:");
-		//std::cout << str << std::endl;
-	//return (line)
-}
-
-void Parser::getLinks()
-{
-	std::string str;
-
-	while ((str = this->getline()) != "")
-		std::cout << str << std::endl;
-	//return (line)
 }
