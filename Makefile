@@ -18,7 +18,6 @@ RM	=	rm -f
 SRCDIR	=	src
 
 SRC	=	main.cpp					\
-		Exceptions/ParserException.cpp			\
 		Exceptions/ComponentManagerException.cpp	\
 		Components/ComponentManager.cpp			\
 		Components/Component.cpp			\
