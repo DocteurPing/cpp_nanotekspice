@@ -50,7 +50,7 @@ std::string Parser::getline()
 	return (line);
 }
 
-std::string Parser::getChipset()
+void Parser::getChipset()
 {
 	std::string str;
 
@@ -60,7 +60,7 @@ std::string Parser::getChipset()
 	//return (line)
 }
 
-std::string Parser::getLinks()
+void Parser::getLinks()
 {
 	std::string str;
 
