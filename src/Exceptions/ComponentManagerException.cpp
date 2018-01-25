@@ -8,13 +8,7 @@
 #include "Exceptions/ComponentManagerException.hpp"
 
 ComponentManagerException::ComponentManagerException(
-	const std::string &message, const std::string &where)
+	const std::string &what, const std::string &where)
+		: NtsException(what, where)
 {
-	this->message = message;
-	this->where = where;
-}
-
-const char *ComponentManagerException::what() const noexcept
-{
-	return (this->where.c_str());
 }

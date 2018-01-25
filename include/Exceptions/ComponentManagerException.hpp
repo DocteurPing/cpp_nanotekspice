@@ -8,20 +8,13 @@
 #ifndef ComponentManagerException_HPP_
 	#define ComponentManagerException_HPP_
 
-#include <string>
-#include <exception>
+#include "Exceptions/NtsException.hpp"
 
-class ComponentManagerException : public std::exception
+class ComponentManagerException : public NtsException
 {
 	public:
-	ComponentManagerException(const std::string &message, const std::string &where);
+	ComponentManagerException(const std::string &what, const std::string &where);
 	~ComponentManagerException() = default;
-
-	const char *what() const noexcept;
-
-	private:
-	std::string message;
-	std::string where;
 };
 
 #endif /* !PARSEREXCEPTION_HPP_ */
