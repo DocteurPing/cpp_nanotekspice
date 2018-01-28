@@ -8,15 +8,13 @@
 #ifndef COMPONENTINPUT_HPP_
 	#define COMPONENTINPUT_HPP_
 
-#include "Components/Component.hpp"
+#include "Components/ComponentSpecial.hpp"
 
-class ComponentInput : public nts::Component
+class ComponentInput : public ComponentSpecial
 {
 	public:
 	ComponentInput(unsigned int input = 0);
-	~ComponentInput();
-
-	void setValue(nts::Tristate val);
+	virtual ~ComponentInput() = default;
 };
 
 #endif /* !COMPONENTINPUT_HPP_ */
