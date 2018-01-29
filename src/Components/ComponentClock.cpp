@@ -7,6 +7,7 @@
 
 #include "Components/ComponentClock.hpp"
 
-ComponentClock::ComponentClock(unsigned int pin) : ComponentInput(pin)
+ComponentClock::ComponentClock(unsigned int pin)
+	: ComponentSpecial("Clock", pin)
 {
 }

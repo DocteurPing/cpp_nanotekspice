@@ -12,7 +12,7 @@
 int main()
 {
 	nts::ComponentManager cm;
-	std::unique_ptr<nts::IComponent> c = cm.createComponent("input", "0");
+	std::unique_ptr<nts::IComponent> c = cm.createComponent("4008", "0");
 
 	c.get()->dump();
 	return (0);

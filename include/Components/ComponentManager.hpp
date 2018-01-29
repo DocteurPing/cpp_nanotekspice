@@ -26,6 +26,10 @@
 #include "Components/Component4514.hpp"
 #include "Components/Component4801.hpp"
 #include "Components/ComponentInput.hpp"
+#include "Components/ComponentClock.hpp"
+#include "Components/ComponentTrue.hpp"
+#include "Components/ComponentFalse.hpp"
+#include "Components/ComponentOutput.hpp"
 
 namespace nts
 {
@@ -54,6 +58,10 @@ namespace nts
 		ComponentPtr create4514(const std::string &value) const noexcept;
 		ComponentPtr create4801(const std::string &value) const noexcept;
 		ComponentPtr createInput(const std::string &value) const noexcept;
+		ComponentPtr createClock(const std::string &value) const noexcept;
+		ComponentPtr createTrue(const std::string &value) const noexcept;
+		ComponentPtr createFalse(const std::string &value) const noexcept;
+		ComponentPtr createOutput(const std::string &value) const noexcept;
 
 		std::unordered_map<
 			std::string,

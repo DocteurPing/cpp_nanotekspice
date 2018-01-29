@@ -8,9 +8,9 @@
 #ifndef COMPONENTCLOCK_HPP_
 	#define COMPONENTCLOCK_HPP_
 
-#include "Components/ComponentInput.hpp"
+#include "Components/ComponentSpecial.hpp"
 
-class ComponentClock : public ComponentInput
+class ComponentClock : public ComponentSpecial
 {
 	public:
 	ComponentClock(unsigned int pin = 0);

@@ -8,7 +8,7 @@
 #include "Components/ComponentSpecial.hpp"
 
 ComponentSpecial::ComponentSpecial(const std::string &name, unsigned int pin)
-	: nts::Component(name, "")
+	: nts::Component("", name)
 {
 	if (pin > 1)
 		throw ComponentException("Invalid component state.", "Component Input");
