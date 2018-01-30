@@ -21,7 +21,6 @@ SRC	=	main.cpp					\
 		Exceptions/NtsException.cpp			\
 		Exceptions/ParserException.cpp			\
 		Exceptions/ComponentManagerException.cpp	\
-		Exceptions/ParserException.cpp			\
 		Exceptions/ComponentException.cpp		\
 		Components/ComponentManager.cpp			\
 		Components/Component.cpp			\
