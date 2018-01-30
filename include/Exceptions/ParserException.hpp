@@ -8,20 +8,13 @@
 #ifndef PARSEREXCEPTION_HPP_
 	#define PARSEREXCEPTION_HPP_
 
-#include <string>
-#include <exception>
+#include "Exceptions/NtsException.hpp"
 
-class ParserException : public std::exception
+class ParserException : public NtsException
 {
 	public:
-	ParserException(const std::string &message, const std::string &where);
+	ParserException(const std::string &what, const std::string &where);
 	~ParserException() = default;
-
-	const char *what() const noexcept;
-
-	private:
-	std::string message;
-	std::string where;
 };
 
 #endif /* !PARSEREXCEPTION_HPP_ */

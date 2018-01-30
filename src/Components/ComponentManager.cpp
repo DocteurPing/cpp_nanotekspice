@@ -23,6 +23,11 @@ nts::ComponentManager::ComponentManager()
 	this->createMap["4094"] = &nts::ComponentManager::create4094;
 	this->createMap["4514"] = &nts::ComponentManager::create4514;
 	this->createMap["4801"] = &nts::ComponentManager::create4801;
+	this->createMap["input"] = &nts::ComponentManager::createInput;
+	this->createMap["clock"] = &nts::ComponentManager::createClock;
+	this->createMap["true"] = &nts::ComponentManager::createTrue;
+	this->createMap["false"] = &nts::ComponentManager::createFalse;
+	this->createMap["output"] = &nts::ComponentManager::createOutput;
 }
 
 nts::ComponentManager::~ComponentManager()
@@ -120,4 +125,38 @@ nts::ComponentManager::ComponentPtr nts::ComponentManager::create4801(
 	const std::string &value) const noexcept
 {
 	return (static_cast<ComponentPtr>(std::make_unique<Component4801>(value)));
+}
+
+nts::ComponentManager::ComponentPtr nts::ComponentManager::createInput(
+	const std::string &value) const noexcept
+{
+	return (static_cast<ComponentPtr>(std::make_unique<ComponentInput>(
+		static_cast<unsigned int>(std::stoul(value))))
+	);
+}
+
+nts::ComponentManager::ComponentPtr nts::ComponentManager::createClock(
+	const std::string &value) const noexcept
+{
+	return (static_cast<ComponentPtr>(std::make_unique<ComponentClock>(
+		static_cast<unsigned int>(std::stoul(value))))
+	);
+}
+
+nts::ComponentManager::ComponentPtr nts::ComponentManager::createTrue(
+	const std::string &value) const noexcept
+{
+	return (static_cast<ComponentPtr>(std::make_unique<ComponentTrue>()));
+}
+
+nts::ComponentManager::ComponentPtr nts::ComponentManager::createFalse(
+	const std::string &value) const noexcept
+{
+	return (static_cast<ComponentPtr>(std::make_unique<ComponentFalse>()));
+}
+
+nts::ComponentManager::ComponentPtr nts::ComponentManager::createOutput(
+	const std::string &value) const noexcept
+{
+	return (static_cast<ComponentPtr>(std::make_unique<ComponentOutput>()));
 }

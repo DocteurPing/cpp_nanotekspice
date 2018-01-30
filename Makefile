@@ -18,10 +18,14 @@ RM	=	rm -f
 SRCDIR	=	src
 
 SRC	=	main.cpp					\
+		Exceptions/NtsException.cpp			\
+		Exceptions/ParserException.cpp			\
 		Exceptions/ComponentManagerException.cpp	\
 		Exceptions/ParserException.cpp			\
+		Exceptions/ComponentException.cpp		\
 		Components/ComponentManager.cpp			\
 		Components/Component.cpp			\
+		Components/ComponentSpecial.cpp			\
 		Components/Component2716.cpp			\
 		Components/Component4001.cpp			\
 		Components/Component4008.cpp			\
@@ -36,7 +40,12 @@ SRC	=	main.cpp					\
 		Components/Component4094.cpp			\
 		Components/Component4514.cpp			\
 		Components/Component4801.cpp			\
-		Parser.cpp
+		Parser.cpp					\
+		Components/ComponentInput.cpp			\
+		Components/ComponentClock.cpp			\
+		Components/ComponentTrue.cpp			\
+		Components/ComponentFalse.cpp			\
+		Components/ComponentOutput.cpp
 
 SRC	:=	$(addprefix $(SRCDIR)/, $(SRC))
 

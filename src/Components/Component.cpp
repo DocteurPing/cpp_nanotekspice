@@ -7,8 +7,8 @@
 
 #include "Components/Component.hpp"
 
-nts::Component::Component(const std::string &model, const std::string &value)
-	: model(model), value(value)
+nts::Component::Component(const std::string &name, const std::string &type)
+	: name(name), type(type)
 {
 }
 
@@ -28,5 +28,11 @@ void nts::Component::setLink(std::size_t pin, nts::IComponent &other, std::size_
 
 void nts::Component::dump() const
 {
-	std::cout << "My name is: " << this->model << std::endl;
+	std::cout << "Dump of: " << this->type;
+	if (!this->name.empty())
+		std::cout << " (" << this->name << ")";
+	std::cout << std::endl << "--------------------" << std::endl;
+	for (auto &it : this->pins)
+		std::cout << "Pin [" << it.first << "]:\t" << it.second << std::endl;
+	std::cout << "--------------------" << std::endl;
 }

@@ -7,13 +7,7 @@
 
 #include "Exceptions/ParserException.hpp"
 
-ParserException::ParserException(const std::string &message, const std::string &where)
+ParserException::ParserException(const std::string &what, const std::string &where)
+	: NtsException(what, where)
 {
-	this->message = message;
-	this->where = where;
-}
-
-const char *ParserException::what() const noexcept
-{
-	return (this->where.c_str());
 }
