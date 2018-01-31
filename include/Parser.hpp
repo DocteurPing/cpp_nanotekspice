@@ -12,15 +12,20 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <vector>
 #include "Exceptions/ParserException.hpp"
+#include "Components/ComponentManager.hpp"
 
 class Parser {
 	public:
 	Parser(const std::string &file);
 	~Parser();
+	std::string process();
+
 
 	private:
 	std::string getline();
+	std::string checkerror(std::string);
 	typedef enum ESection
 	{
 		CHIPSETS,
@@ -30,6 +35,7 @@ class Parser {
 
 	std::ifstream ifs;
 	Section section = UNKNOWN;
+	std::vector<ComponentInput> listInput;
 };
 
 #endif /* !PARSER_HPP_ */

@@ -19,21 +19,12 @@ Parser::~Parser()
 	this->ifs.close();
 }
 
-std::string Parser::getline()
+static std::string removeUnusedSpaces(std::string line)
 {
-	size_t pos;
-	std::string line;
 	size_t it = 0;
+	size_t size = line.size();
 
-	while (std::getline(this->ifs, line))
-	{
-		pos = line.find("#");
-		if (pos != std::string::npos)
-			line = line.substr(0, pos);
-		size_t size = line.size();
-
-		std::replace(line.begin(), line.end(), '\t', ' ');
-		while (it < size)
+	while (it < size)
 		{
 			if (isspace(line[it]) &&
 				(it == 0 || (it == (size - 1)) || isspace(line[it + 1])))
@@ -44,12 +35,56 @@ std::string Parser::getline()
 			else
 				++it;
 		}
+	return (line);
+}
+
+std::string Parser::getline()
+{
+	size_t pos;
+	std::string line;
+
+	while (std::getline(this->ifs, line))
+	{
+		pos = line.find("#");
+		if (pos != std::string::npos)
+			line = line.substr(0, pos);
+		line = removeUnusedSpaces(line);
+		std::replace(line.begin(), line.end(), '\t', ' ');
 		if (line.size() != 0)
 			break;
 	}
+	return (line);
+}
+
+std::string Parser::checkerror(std::string line)
+{
+	std::size_t found;
+
+	if (this->section == CHIPSETS) {
+		found = line.find("input");
+  		if (found != std::string::npos)
+			this->listInput.push_back(ComponentInput(1));
+	}
+	/* if (this->section == LINKS) {
+		try {
+			setLink(1)
+		}
+		catch ()
+	} */
+	return (line);
+}
+
+std::string Parser::process()
+{
+	std::string line = this->getline();
+
 	if (line == ".chipsets:")
 		this->section = CHIPSETS;
-	if (line == ".links:")
+	else if (line == ".links:")
 		this->section = LINKS;
+	else if (line.empty())
+		this->section = UNKNOWN;
+	else 
+		line = this->checkerror(line);
 	return (line);
 }
