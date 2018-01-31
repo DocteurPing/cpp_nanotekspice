@@ -10,3 +10,8 @@
 ComponentTrue::ComponentTrue() : ComponentSpecial("True", 1)
 {
 }
+
+void ComponentTrue::setValue(nts::Tristate val)
+{
+	static_cast<void>(val);
+}

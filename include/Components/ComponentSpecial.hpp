@@ -16,7 +16,7 @@ class ComponentSpecial : public nts::Component
 	ComponentSpecial(const std::string &name, unsigned int pin = 0);
 	virtual ~ComponentSpecial() = default;
 
-	void setValue(nts::Tristate val);
+	virtual void setValue(nts::Tristate val);
 };
 
 #endif /* !COMPONENTSPECIAL_HPP_ */

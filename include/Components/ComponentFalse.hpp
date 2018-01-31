@@ -15,6 +15,8 @@ class ComponentFalse : public ComponentSpecial
 	public:
 	ComponentFalse();
 	~ComponentFalse() = default;
+
+	void setValue(nts::Tristate val) override;
 };
 
 #endif /* !COMPONENTFALSE_HPP_ */

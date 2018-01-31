@@ -15,6 +15,8 @@ class ComponentTrue : public ComponentSpecial
 	public:
 	ComponentTrue();
 	~ComponentTrue() = default;
+
+	void setValue(nts::Tristate val) override;
 };
 
 #endif /* !COMPONENTTRUE_HPP_ */
