@@ -7,6 +7,8 @@
 
 #include "Components/ComponentOutput.hpp"
 
-ComponentOutput::ComponentOutput() : ComponentSpecial("Output")
+ComponentOutput::ComponentOutput(unsigned int pin)
+	: ComponentSpecial("Output", pin)
 {
+
 }

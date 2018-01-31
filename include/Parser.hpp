@@ -35,8 +35,8 @@ class Parser {
 
 	std::ifstream ifs;
 	Section section = UNKNOWN;
-	std::vector<ComponentInput> listInput;
-	std::vector<ComponentOutput> listOutput;
+	std::vector<std::pair<std::string, ComponentInput>> listInput;
+	std::vector<std::pair<std::string, ComponentOutput>> listOutput;
 };
 
 #endif /* !PARSER_HPP_ */

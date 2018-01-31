@@ -63,10 +63,10 @@ std::string Parser::checkerror(std::string line)
 	if (this->section == CHIPSETS) {
 		found = line.find("input");
   		if (found != std::string::npos)
-			this->listInput.push_back(ComponentInput(1));
+			this->listInput.push_back(std::make_pair(&line[found + 1], ComponentInput(1)));
 		found = line.find("output");
   		if (found != std::string::npos)
-			this->listOutput.push_back(ComponentInput(1));
+			this->listOutput.push_back(std::make_pair(&line[found + 1], ComponentOutput(1)));
 	}
 	/* if (this->section == LINKS) {
 		try {
@@ -79,8 +79,9 @@ std::string Parser::checkerror(std::string line)
 
 std::string Parser::process()
 {
-	std::string line = this->getline();
-
+	std::string line; 
+	
+	while ((line = this->getline()) != "") {
 	if (line == ".chipsets:")
 		this->section = CHIPSETS;
 	else if (line == ".links:")
@@ -89,5 +90,6 @@ std::string Parser::process()
 		this->section = UNKNOWN;
 	else 
 		line = this->checkerror(line);
+	}
 	return (line);
 }

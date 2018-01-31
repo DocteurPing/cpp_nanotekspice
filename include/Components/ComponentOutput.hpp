@@ -13,8 +13,8 @@
 class ComponentOutput : public ComponentSpecial
 {
 	public:
-	ComponentOutput();
-	~ComponentOutput() = default;
+	ComponentOutput(unsigned int pin = 0);
+	virtual ~ComponentOutput() = default;
 };
 
 #endif /* !COMPONENTOUTPUT_HPP_ */
