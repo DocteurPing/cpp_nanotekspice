@@ -64,6 +64,9 @@ std::string Parser::checkerror(std::string line)
 		found = line.find("input");
   		if (found != std::string::npos)
 			this->listInput.push_back(ComponentInput(1));
+		found = line.find("output");
+  		if (found != std::string::npos)
+			this->listOutput.push_back(ComponentInput(1));
 	}
 	/* if (this->section == LINKS) {
 		try {
