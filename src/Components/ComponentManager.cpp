@@ -38,7 +38,9 @@ nts::ComponentManager::ComponentPtr nts::ComponentManager::createComponent(
 	const std::string &type, const std::string &value)
 {
 	if (this->createMap.find(type) == this->createMap.end())
-		throw ComponentManagerException("Unknown Component", "Component Creation");
+		throw ComponentManagerException(
+			"Unknown Component", "Component Creation"
+		);
 	return ((this->*this->createMap[type])(value));
 
 }
@@ -46,85 +48,113 @@ nts::ComponentManager::ComponentPtr nts::ComponentManager::createComponent(
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create2716(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component2716>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component2716>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4001(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4001>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4001>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4008(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4008>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4008>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4011(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4011>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4011>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4013(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4013>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4013>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4017(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4017>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4017>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4030(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4030>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4030>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4040(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4040>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4040>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4069(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4069>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4069>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4071(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4071>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4071>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4081(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4081>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4081>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4094(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4094>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4094>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4514(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4514>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4514>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::create4801(
 	const std::string &value) const noexcept
 {
-	return (static_cast<ComponentPtr>(std::make_unique<Component4801>(value)));
+	return (static_cast<ComponentPtr>(
+			std::make_unique<Component4801>(value))
+		);
 }
 
 nts::ComponentManager::ComponentPtr nts::ComponentManager::createInput(

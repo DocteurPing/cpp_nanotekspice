@@ -40,32 +40,53 @@ namespace nts
 		~ComponentManager();
 
 		typedef std::unique_ptr<nts::IComponent> ComponentPtr;
-		ComponentPtr createComponent(const std::string &type, const std::string &value);
+		ComponentPtr createComponent(
+			const std::string &type, const std::string &value);
 
 		private:
-		ComponentPtr create2716(const std::string &value) const noexcept;
-		ComponentPtr create4001(const std::string &value) const noexcept;
-		ComponentPtr create4008(const std::string &value) const noexcept;
-		ComponentPtr create4011(const std::string &value) const noexcept;
-		ComponentPtr create4013(const std::string &value) const noexcept;
-		ComponentPtr create4017(const std::string &value) const noexcept;
-		ComponentPtr create4030(const std::string &value) const noexcept;
-		ComponentPtr create4040(const std::string &value) const noexcept;
-		ComponentPtr create4069(const std::string &value) const noexcept;
-		ComponentPtr create4071(const std::string &value) const noexcept;
-		ComponentPtr create4081(const std::string &value) const noexcept;
-		ComponentPtr create4094(const std::string &value) const noexcept;
-		ComponentPtr create4514(const std::string &value) const noexcept;
-		ComponentPtr create4801(const std::string &value) const noexcept;
-		ComponentPtr createInput(const std::string &value) const noexcept;
-		ComponentPtr createClock(const std::string &value) const noexcept;
-		ComponentPtr createTrue(const std::string &value) const noexcept;
-		ComponentPtr createFalse(const std::string &value) const noexcept;
-		ComponentPtr createOutput(const std::string &value) const noexcept;
+		ComponentPtr create2716(
+			const std::string &value) const noexcept;
+		ComponentPtr create4001(
+			const std::string &value) const noexcept;
+		ComponentPtr create4008(
+			const std::string &value) const noexcept;
+		ComponentPtr create4011(
+			const std::string &value) const noexcept;
+		ComponentPtr create4013(
+			const std::string &value) const noexcept;
+		ComponentPtr create4017(
+			const std::string &value) const noexcept;
+		ComponentPtr create4030(
+			const std::string &value) const noexcept;
+		ComponentPtr create4040(
+			const std::string &value) const noexcept;
+		ComponentPtr create4069(
+			const std::string &value) const noexcept;
+		ComponentPtr create4071(
+			const std::string &value) const noexcept;
+		ComponentPtr create4081(
+			const std::string &value) const noexcept;
+		ComponentPtr create4094(
+			const std::string &value) const noexcept;
+		ComponentPtr create4514(
+			const std::string &value) const noexcept;
+		ComponentPtr create4801(
+			const std::string &value) const noexcept;
+		ComponentPtr createInput(
+			const std::string &value) const noexcept;
+		ComponentPtr createClock(
+			const std::string &value) const noexcept;
+		ComponentPtr createTrue(
+			const std::string &value) const noexcept;
+		ComponentPtr createFalse(
+			const std::string &value) const noexcept;
+		ComponentPtr createOutput(
+			const std::string &value) const noexcept;
 
 		std::unordered_map<
 			std::string,
-			ComponentPtr (ComponentManager::*)(const std::string &value) const noexcept
+			ComponentPtr (ComponentManager::*)
+				(const std::string &value) const noexcept
 		> createMap;
 	};
 }

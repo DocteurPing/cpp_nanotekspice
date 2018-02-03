@@ -26,10 +26,21 @@ void nts::Component::setLink(
 	nts::IComponent &other,
 	std::size_t otherPin)
 {
-	nts::Component c = static_cast<nts::Component>(other);
 	if (this->pins.find(pin) == this->pins.end())
 		throw ComponentException("Invalid Pin", "Set Link");
+	if (this->links.find(pin) != this->links.end())
+		return;
 	this->links[pin] = std::make_pair(otherPin, &other);
+	try
+	{
+		other.setLink(otherPin, *this, pin);
+	}
+	catch (ComponentException &e)
+	{
+		throw ComponentException(
+			"Invalid Other Component Pin", "Set Link"
+		);
+	}
 }
 
 void nts::Component::dump() const
