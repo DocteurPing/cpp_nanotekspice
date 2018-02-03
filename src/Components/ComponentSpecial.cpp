@@ -12,7 +12,7 @@ ComponentSpecial::ComponentSpecial(const std::string &name, unsigned int pin)
 {
 	if (pin > 1)
 		throw ComponentException(
-			"Invalid component state.", "Component Input"
+			"Invalid component state.", "Component Special"
 		);
 	this->pins[1] = static_cast<nts::Tristate>(pin);
 }

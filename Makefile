@@ -24,6 +24,7 @@ SRC	=	main.cpp					\
 		Exceptions/ComponentException.cpp		\
 		Components/ComponentManager.cpp			\
 		Components/Component.cpp			\
+		Components/ComponentChipset.cpp			\
 		Components/ComponentSpecial.cpp			\
 		Components/Component2716.cpp			\
 		Components/Component4001.cpp			\

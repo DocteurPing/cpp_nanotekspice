@@ -8,7 +8,7 @@
 #include "Components/Component4001.hpp"
 
 nts::Component4001::Component4001(const std::string &value)
-	: Component("4001", "Chipset")
+	: ComponentChipset("4001", 14)
 {
 }
 
