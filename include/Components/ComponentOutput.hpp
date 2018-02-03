@@ -13,7 +13,7 @@
 class ComponentOutput : public ComponentSpecial
 {
 	public:
-	ComponentOutput();
+	ComponentOutput(const std::string &discarded = "0");
 	~ComponentOutput() = default;
 };
 

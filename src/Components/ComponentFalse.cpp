@@ -7,9 +7,10 @@
 
 #include "Components/ComponentFalse.hpp"
 
-ComponentFalse::ComponentFalse()
+ComponentFalse::ComponentFalse(const std::string &discarded)
 	: ComponentSpecial("False", nts::Tristate::FALSE)
 {
+	static_cast<void>(discarded);
 }
 
 void ComponentFalse::setValue(nts::Tristate val)

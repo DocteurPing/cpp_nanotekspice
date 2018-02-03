@@ -13,7 +13,7 @@
 class ComponentInput : public ComponentSpecial
 {
 	public:
-	ComponentInput(std::size_t input = 0);
+	ComponentInput(const std::string &pin = "0");
 	virtual ~ComponentInput() = default;
 };
 

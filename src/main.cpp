@@ -14,7 +14,10 @@ int main()
 	nts::ComponentManager cm;
 	std::unique_ptr<nts::IComponent> c = cm.createComponent("4008", "0");
 	std::unique_ptr<nts::IComponent> d = cm.createComponent("4017", "0");
+	std::unique_ptr<nts::IComponent> e = cm.createComponent("input", "0");
 
-	c.get()->setLink(1, *d.get(), 1);
+	c.get()->dump();
+	d.get()->dump();
+	e.get()->dump();
 	return (0);
 }

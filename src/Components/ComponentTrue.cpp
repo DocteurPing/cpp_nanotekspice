@@ -7,8 +7,10 @@
 
 #include "Components/ComponentTrue.hpp"
 
-ComponentTrue::ComponentTrue() : ComponentSpecial("True", nts::Tristate::TRUE)
+ComponentTrue::ComponentTrue(const std::string &discarded)
+	: ComponentSpecial("True", nts::Tristate::TRUE)
 {
+	static_cast<void>(discarded);
 }
 
 void ComponentTrue::setValue(nts::Tristate val)

@@ -13,7 +13,7 @@
 class ComponentFalse : public ComponentSpecial
 {
 	public:
-	ComponentFalse();
+	ComponentFalse(const std::string &discarded = "0");
 	~ComponentFalse() = default;
 
 	void setValue(nts::Tristate val) override;

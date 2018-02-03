@@ -7,6 +7,8 @@
 
 #include "Components/ComponentOutput.hpp"
 
-ComponentOutput::ComponentOutput() : ComponentSpecial("Output")
+ComponentOutput::ComponentOutput(const std::string &discarded)
+	: ComponentSpecial("Output")
 {
+	static_cast<void>(discarded);
 }
