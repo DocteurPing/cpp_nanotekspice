@@ -21,9 +21,15 @@ nts::Tristate nts::Component::compute(std::size_t pin)
 
 }
 
-void nts::Component::setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin)
+void nts::Component::setLink(
+	std::size_t pin,
+	nts::IComponent &other,
+	std::size_t otherPin)
 {
-
+	nts::Component c = static_cast<nts::Component>(other);
+	if (this->pins.find(pin) == this->pins.end())
+		throw ComponentException("Invalid Pin", "Set Link");
+	this->links[pin] = std::make_pair(otherPin, &other);
 }
 
 void nts::Component::dump() const
@@ -33,6 +39,7 @@ void nts::Component::dump() const
 		std::cout << " (" << this->name << ")";
 	std::cout << std::endl << "--------------------" << std::endl;
 	for (auto &it : this->pins)
-		std::cout << "Pin [" << it.first << "]:\t" << it.second << std::endl;
+		std::cout << "Pin [" << it.first << "]:\t" << it.second <<
+			std::endl;
 	std::cout << "--------------------" << std::endl;
 }

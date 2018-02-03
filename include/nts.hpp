@@ -9,6 +9,7 @@
 	#define NTS_HPP_
 
 #include <iostream>
+#include <algorithm>
 
 namespace nts
 {

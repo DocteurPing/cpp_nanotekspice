@@ -21,13 +21,16 @@ namespace nts
 		virtual ~Component();
 
 		nts::Tristate compute(std::size_t pin = 1);
-		void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin);
+		void setLink(std::size_t pin, nts::IComponent &other,
+			std::size_t otherPin);
 		void dump() const;
 
 		protected:
 		const std::string name;
 		const std::string type;
-		std::unordered_map<int, nts::Tristate> pins;
+		std::unordered_map<std::size_t, nts::Tristate> pins;
+		std::unordered_map<std::size_t,
+			std::pair<std::size_t, nts::IComponent *>> links;
 	};
 }
 
