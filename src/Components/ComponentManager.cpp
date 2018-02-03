@@ -7,35 +7,27 @@
 
 #include "Components/ComponentManager.hpp"
 
-template<typename T>
-static nts::ComponentManager::ComponentPtr create(const std::string &value)
-{
-	return (static_cast<nts::ComponentManager::ComponentPtr>(
-			std::make_unique<T>(value)
-		));
-}
-
 nts::ComponentManager::ComponentManager()
 {
-	this->createMap["2716"] = LAMBDA_CREATEFNC(Component2716);
-	this->createMap["4001"] = LAMBDA_CREATEFNC(Component4001);
-	this->createMap["4008"] = LAMBDA_CREATEFNC(Component4008);
-	this->createMap["4011"] = LAMBDA_CREATEFNC(Component4001);
-	this->createMap["4013"] = LAMBDA_CREATEFNC(Component4013);
-	this->createMap["4017"] = LAMBDA_CREATEFNC(Component4017);
-	this->createMap["4030"] = LAMBDA_CREATEFNC(Component4030);
-	this->createMap["4040"] = LAMBDA_CREATEFNC(Component4040);
-	this->createMap["4069"] = LAMBDA_CREATEFNC(Component4069);
-	this->createMap["4071"] = LAMBDA_CREATEFNC(Component4071);
-	this->createMap["4081"] = LAMBDA_CREATEFNC(Component4081);
-	this->createMap["4094"] = LAMBDA_CREATEFNC(Component4094);
-	this->createMap["4514"] = LAMBDA_CREATEFNC(Component4514);
-	this->createMap["4801"] = LAMBDA_CREATEFNC(Component4801);
-	this->createMap["input"] = LAMBDA_CREATEFNC(ComponentInput);
-	this->createMap["clock"] = LAMBDA_CREATEFNC(ComponentClock);
-	this->createMap["true"] = LAMBDA_CREATEFNC(ComponentTrue);
-	this->createMap["false"] = LAMBDA_CREATEFNC(ComponentFalse);
-	this->createMap["output"] = LAMBDA_CREATEFNC(ComponentOutput);
+	this->createMap["2716"] = CREATE_MAP(Component2716);
+	this->createMap["4001"] = CREATE_MAP(Component4001);
+	this->createMap["4008"] = CREATE_MAP(Component4008);
+	this->createMap["4011"] = CREATE_MAP(Component4001);
+	this->createMap["4013"] = CREATE_MAP(Component4013);
+	this->createMap["4017"] = CREATE_MAP(Component4017);
+	this->createMap["4030"] = CREATE_MAP(Component4030);
+	this->createMap["4040"] = CREATE_MAP(Component4040);
+	this->createMap["4069"] = CREATE_MAP(Component4069);
+	this->createMap["4071"] = CREATE_MAP(Component4071);
+	this->createMap["4081"] = CREATE_MAP(Component4081);
+	this->createMap["4094"] = CREATE_MAP(Component4094);
+	this->createMap["4514"] = CREATE_MAP(Component4514);
+	this->createMap["4801"] = CREATE_MAP(Component4801);
+	this->createMap["input"] = CREATE_MAP(ComponentInput);
+	this->createMap["clock"] = CREATE_MAP(ComponentClock);
+	this->createMap["true"] = CREATE_MAP(ComponentTrue);
+	this->createMap["false"] = CREATE_MAP(ComponentFalse);
+	this->createMap["output"] = CREATE_MAP(ComponentOutput);
 }
 
 nts::ComponentManager::~ComponentManager()
@@ -50,4 +42,13 @@ nts::ComponentManager::ComponentPtr nts::ComponentManager::createComponent(
 			"Unknown Component", "Component Creation"
 		);
 	return (this->createMap[type](value));
+}
+
+template<typename T>
+nts::ComponentManager::ComponentPtr nts::ComponentManager::create(
+		const std::string &value)
+{
+	return (static_cast<nts::ComponentManager::ComponentPtr>(
+			std::make_unique<T>(value)
+		));
 }

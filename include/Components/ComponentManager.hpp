@@ -31,7 +31,9 @@
 #include "Components/ComponentFalse.hpp"
 #include "Components/ComponentOutput.hpp"
 
-#define LAMBDA_CREATEFNC(X) (([] (const std::string &value) { return create<X>(value); }))
+#define CREATE_MAP(X) \
+	(std::bind(&nts::ComponentManager::create<X>, \
+		this, std::placeholders::_1))
 
 namespace nts
 {
@@ -50,6 +52,9 @@ namespace nts
 			std::string,
 			std::function<ComponentPtr(const std::string &)>
 		> createMap;
+
+		template<typename T>
+		ComponentPtr create(const std::string &value);
 	};
 }
 
