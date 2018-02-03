@@ -7,7 +7,7 @@
 
 #include "Components/ComponentTrue.hpp"
 
-ComponentTrue::ComponentTrue() : ComponentSpecial("True", 1)
+ComponentTrue::ComponentTrue() : ComponentSpecial("True", nts::Tristate::TRUE)
 {
 }
 

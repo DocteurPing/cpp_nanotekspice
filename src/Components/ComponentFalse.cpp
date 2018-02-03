@@ -7,7 +7,8 @@
 
 #include "Components/ComponentFalse.hpp"
 
-ComponentFalse::ComponentFalse() : ComponentSpecial("False", 0)
+ComponentFalse::ComponentFalse()
+	: ComponentSpecial("False", nts::Tristate::FALSE)
 {
 }
 

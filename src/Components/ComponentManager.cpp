@@ -161,7 +161,7 @@ nts::ComponentManager::ComponentPtr nts::ComponentManager::createInput(
 	const std::string &value) const noexcept
 {
 	return (static_cast<ComponentPtr>(std::make_unique<ComponentInput>(
-		static_cast<unsigned int>(std::stoul(value))))
+		static_cast<std::size_t>(std::stoul(value))))
 	);
 }
 
@@ -169,7 +169,7 @@ nts::ComponentManager::ComponentPtr nts::ComponentManager::createClock(
 	const std::string &value) const noexcept
 {
 	return (static_cast<ComponentPtr>(std::make_unique<ComponentClock>(
-		static_cast<unsigned int>(std::stoul(value))))
+		static_cast<std::size_t>(std::stoul(value))))
 	);
 }
 
