@@ -56,24 +56,45 @@ std::string Parser::getline()
 	return (line);
 }
 
+ComponentSpecial Parser::getComposentUsed(std::string str)
+{
+	size_t it = 0;
+	ComponentSpecial cs("fail", 0);
+
+	for (; it <= this->listInput.size() && str != this->listInput[it].first; it++);
+	if (str == this->listInput[it].first)
+		return (this->listInput[it].second);
+	for (it = 0; it <= this->listComponent.size() && str != this->listComponent[it].first; it++);
+	if (str == this->listComponent[it].first)
+		return (this->listComponent[it].second);
+	return (cs);
+}
+
 std::string Parser::checkerror(std::string line)
 {
 	std::size_t found;
+	ComponentSpecial cs("fail", 0);
+	nts::ComponentManager cm;
+	std::unique_ptr<nts::IComponent> c;
 
 	if (this->section == CHIPSETS) {
 		found = line.find("input");
-  		if (found != std::string::npos)
+  		if (found != std::string::npos) {
 			this->listInput.push_back(std::make_pair(&line[found + 1], ComponentInput(1)));
-		found = line.find("output");
-  		if (found != std::string::npos)
-			this->listOutput.push_back(std::make_pair(&line[found + 1], ComponentOutput(1)));
-	}
-	/* if (this->section == LINKS) {
-		try {
-			setLink(1)
+			return (nullptr);
 		}
-		catch ()
-	} */
+		found = line.find("output");
+  		if (found != std::string::npos) {
+			this->listOutput.push_back(std::make_pair(&line[found + 1], ComponentOutput(1)));
+			return (nullptr);
+		}
+		c = cm.createComponent(line.substr(0, line.find(" ")), line.substr(line.find(" ")));
+		this->listOutput.push_back(std::make_pair(&line[found + 1], c.get()));
+	}
+	if (this->section == LINKS) {
+		ComponentSpecial cpnt = getComposentUsed(line.substr(0, line.find(":")));
+		cpnt.setLink(std::stoul(line.substr(line.find(":"), line.find(" "))), cpnt, std::stoul(line.substr(line.find(":"))));
+	}
 	return (line);
 }
 

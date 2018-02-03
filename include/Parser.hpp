@@ -26,6 +26,7 @@ class Parser {
 	private:
 	std::string getline();
 	std::string checkerror(std::string);
+	ComponentSpecial getComposentUsed(std::string);
 	typedef enum ESection
 	{
 		CHIPSETS,
@@ -37,6 +38,7 @@ class Parser {
 	Section section = UNKNOWN;
 	std::vector<std::pair<std::string, ComponentInput>> listInput;
 	std::vector<std::pair<std::string, ComponentOutput>> listOutput;
+	std::vector<std::pair<std::string, ComponentSpecial>> listComponent;
 };
 
 #endif /* !PARSER_HPP_ */
