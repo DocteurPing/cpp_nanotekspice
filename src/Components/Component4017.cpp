@@ -7,7 +7,7 @@
 
 #include "Components/Component4017.hpp"
 
-nts::Component4017::Component4017(const std::string &value)
+nts::Component4017::Component4017(UNUSED const std::string &value)
 	: ComponentChipset("4017", 24)
 {
 }

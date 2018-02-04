@@ -7,7 +7,7 @@
 
 #include "Components/Component4514.hpp"
 
-nts::Component4514::Component4514(const std::string &value)
+nts::Component4514::Component4514(UNUSED const std::string &value)
 	: ComponentChipset("4514", 24)
 {
 }
