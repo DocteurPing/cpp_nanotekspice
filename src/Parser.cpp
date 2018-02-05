@@ -89,7 +89,7 @@ std::string Parser::checkerror(std::string line)
 			return (nullptr);
 		}
 		c = cm.createComponent(line.substr(0, line.find(" ")), line.substr(line.find(" ")));
-		this->listOutput.push_back(std::make_pair(&line[found + 1], c.get()));
+		this->listOutput.push_back(std::make_pair(&line[found + 1], *dynamic_cast<ComponentOutput *>(c.get())));
 	}
 	if (this->section == LINKS) {
 		ComponentSpecial cpnt = getComposentUsed(line.substr(0, line.find(":")));
@@ -100,8 +100,8 @@ std::string Parser::checkerror(std::string line)
 
 std::string Parser::process()
 {
-	std::string line; 
-	
+	std::string line;
+
 	while ((line = this->getline()) != "") {
 	if (line == ".chipsets:")
 		this->section = CHIPSETS;
@@ -109,7 +109,7 @@ std::string Parser::process()
 		this->section = LINKS;
 	else if (line.empty())
 		this->section = UNKNOWN;
-	else 
+	else
 		line = this->checkerror(line);
 	}
 	return (line);
