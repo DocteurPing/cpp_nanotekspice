@@ -7,7 +7,7 @@
 
 #include "Components/ComponentClock.hpp"
 
-ComponentClock::ComponentClock(unsigned int pin)
-	: ComponentSpecial("Clock", pin)
+ComponentClock::ComponentClock(const std::string &pin)
+	: ComponentSpecial("Clock", static_cast<nts::Tristate>(std::stoul(pin)))
 {
 }

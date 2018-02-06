@@ -13,7 +13,7 @@
 class ComponentClock : public ComponentSpecial
 {
 	public:
-	ComponentClock(unsigned int pin = 0);
+	ComponentClock(const std::string &pin = "0");
 	~ComponentClock() = default;
 };
 

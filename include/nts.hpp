@@ -9,6 +9,9 @@
 	#define NTS_HPP_
 
 #include <iostream>
+#include <algorithm>
+
+#define UNUSED __attribute__((unused))
 
 namespace nts
 {

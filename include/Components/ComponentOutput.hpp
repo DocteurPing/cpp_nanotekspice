@@ -13,8 +13,8 @@
 class ComponentOutput : public ComponentSpecial
 {
 	public:
-	ComponentOutput(unsigned int pin = 0);
-	virtual ~ComponentOutput() = default;
+	ComponentOutput(const std::string &discarded = "0");
+	~ComponentOutput() = default;
 };
 
 #endif /* !COMPONENTOUTPUT_HPP_ */

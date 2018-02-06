@@ -7,8 +7,8 @@
 
 #include "Components/ComponentInput.hpp"
 
-ComponentInput::ComponentInput(unsigned int pin)
-	: ComponentSpecial("Input", pin)
+ComponentInput::ComponentInput(const std::string &pin)
+	: ComponentSpecial("Input", static_cast<nts::Tristate>(std::stoul(pin)))
 {
 
 }

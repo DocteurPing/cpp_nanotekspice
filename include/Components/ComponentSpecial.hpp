@@ -13,10 +13,11 @@
 class ComponentSpecial : public nts::Component
 {
 	public:
-	ComponentSpecial(const std::string &name, unsigned int pin = 0);
+	ComponentSpecial(const std::string &name,
+		nts::Tristate value = nts::Tristate::UNDEFINED);
 	virtual ~ComponentSpecial() = default;
 
-	void setValue(nts::Tristate val);
+	virtual void setValue(nts::Tristate val);
 };
 
 #endif /* !COMPONENTSPECIAL_HPP_ */

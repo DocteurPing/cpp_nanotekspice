@@ -8,11 +8,11 @@
 #ifndef Component4040_HPP_
 	#define Component4040_HPP_
 
-#include "Components/Component.hpp"
+#include "Components/ComponentChipset.hpp"
 
 namespace nts
 {
-	class Component4040 : public nts::Component
+	class Component4040 : public ComponentChipset
 	{
 		public:
 		Component4040(const std::string &value);

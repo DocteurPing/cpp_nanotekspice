@@ -13,7 +13,8 @@
 class ComponentManagerException : public NtsException
 {
 	public:
-	ComponentManagerException(const std::string &what, const std::string &where);
+	ComponentManagerException(
+		const std::string &what, const std::string &where);
 	~ComponentManagerException() = default;
 };
 

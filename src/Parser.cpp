@@ -81,12 +81,12 @@ std::string Parser::checkerror(std::string line)
 		found = line.find("input");
   		if (found != std::string::npos) {
 			this->listInput.push_back(std::make_pair(&line[found + 1], ComponentInput(1)));
-			return (nullptr);
+			return ("");
 		}
 		found = line.find("output");
   		if (found != std::string::npos) {
 			this->listOutput.push_back(std::make_pair(&line[found + 1], ComponentOutput(1)));
-			return (nullptr);
+			return ("");
 		}
 		c = cm.createComponent(line.substr(0, line.find(" ")), line.substr(line.find(" ")));
 		this->listOutput.push_back(std::make_pair(&line[found + 1], *dynamic_cast<ComponentOutput *>(c.get())));

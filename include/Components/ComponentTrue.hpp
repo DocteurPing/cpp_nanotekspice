@@ -13,8 +13,10 @@
 class ComponentTrue : public ComponentSpecial
 {
 	public:
-	ComponentTrue();
+	ComponentTrue(const std::string &discarded = "0");
 	~ComponentTrue() = default;
+
+	void setValue(nts::Tristate val) override;
 };
 
 #endif /* !COMPONENTTRUE_HPP_ */
