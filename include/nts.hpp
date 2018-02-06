@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <functional>
 
 #define UNUSED __attribute__((unused))
 
