@@ -28,8 +28,7 @@ namespace nts
 		protected:
 		const std::string name;
 		const std::string type;
-		std::unordered_map<std::size_t,
-			std::pair<nts::Tristate, nts::Operation> pins;
+		std::unordered_map<std::size_t, nts::Tristate> pins;
 		std::unordered_map<std::size_t,
 			std::pair<std::size_t, nts::IComponent *>> links;
 	};

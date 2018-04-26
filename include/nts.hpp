@@ -21,14 +21,6 @@ namespace nts
 		TRUE = true,
 		FALSE = false
 	};
-
-	enum Operation {
-		ENTER,
-		AND,
-		OR,
-		NOR,
-		NAND
-	};
 }
 
 #endif /* !NTS_HPP_ */
