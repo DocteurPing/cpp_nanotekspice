@@ -32,7 +32,7 @@ nts::Component4001::~Component4001()
 {
 }
 
-nts::Tristate nts::Component4081::compute(size_t pin)
+nts::Tristate nts::Component4001::compute(size_t pin)
 {
 	if (pin != 3 && pin != 4 && pin != 10 && pin != 11)
 		return (UNDEFINED);
