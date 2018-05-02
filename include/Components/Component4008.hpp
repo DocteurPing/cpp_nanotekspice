@@ -17,6 +17,8 @@ namespace nts
 		public:
 		Component4008(const std::string &value);
 		~Component4008();
+		Tristate compute(std::size_t pin);
+		Tristate gate_add(Tristate pin1, Tristate pin2, Tristate &carry);
 	};
 }
 
