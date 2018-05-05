@@ -38,20 +38,12 @@ nts::Tristate nts::Component4030::compute(size_t pin)
 		return (UNDEFINED);
 	switch (pin) {
 		case 3 :
-			if (pins[1] == UNDEFINED || pins[2] == UNDEFINED)
-				return (UNDEFINED);
 			return (pins[1] == pins[2] ? FALSE : TRUE);
 		case 4 :
-			if (pins[5] == UNDEFINED || pins[6] == UNDEFINED)
-				return (UNDEFINED);
 			return (pins[5] == pins[6] ? FALSE : TRUE);
 		case 10 :
-			if (pins[8] == UNDEFINED || pins[9] == UNDEFINED)
-				return (UNDEFINED);
 			return (pins[8] == pins[9] ? FALSE : TRUE);
 		case 11 :
-			if (pins[12] == UNDEFINED || pins[13] == UNDEFINED)
-				return (UNDEFINED);
 			return (pins[12] == pins[13] ? FALSE : TRUE);
 	}
 	return(UNDEFINED);
