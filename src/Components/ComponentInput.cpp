@@ -12,3 +12,8 @@ ComponentInput::ComponentInput(const std::string &pin)
 {
 
 }
+
+nts::Tristate ComponentInput::Compute(size_t pin)
+{
+	return (pin != 1 ? nts::UNDEFINED : pins[1]);
+}

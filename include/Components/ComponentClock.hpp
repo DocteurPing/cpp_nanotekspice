@@ -15,6 +15,7 @@ class ComponentClock : public ComponentSpecial
 	public:
 	ComponentClock(const std::string &pin = "0");
 	~ComponentClock() = default;
+	nts::Tristate Compute(size_t pin);
 };
 
 #endif /* !COMPONENTCLOCK_HPP_ */
