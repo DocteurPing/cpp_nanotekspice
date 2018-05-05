@@ -20,12 +20,15 @@ class Parser {
 	public:
 	Parser(const std::string &file);
 	~Parser();
-	std::string process();
+	void process();
 
 
 	private:
-	std::string getline();
-	std::string checkerror(std::string);
+	std::string getline() noexcept;
+	void handleInput(const std::string &line);
+	void handleChipset(const std::string &line);
+	void handleLink(const std::string &line);
+	ssize_t findComponent(const std::string &name);
 	ComponentSpecial getComposentUsed(std::string);
 	typedef enum ESection
 	{
@@ -36,9 +39,13 @@ class Parser {
 
 	std::ifstream ifs;
 	Section section = UNKNOWN;
-	std::vector<std::pair<std::string, ComponentInput>> listInput;
-	std::vector<std::pair<std::string, ComponentOutput>> listOutput;
-	std::vector<std::pair<std::string, ComponentSpecial>> listComponent;
+	nts::ComponentManager cm;
+	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
+		listInput;
+	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
+		listOutput;
+	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
+		listComponent;
 };
 
 #endif /* !PARSER_HPP_ */
