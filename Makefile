@@ -45,7 +45,8 @@ SRC	=	main.cpp					\
 		Components/ComponentClock.cpp			\
 		Components/ComponentTrue.cpp			\
 		Components/ComponentFalse.cpp			\
-		Components/ComponentOutput.cpp
+		Components/ComponentOutput.cpp			\
+		Shell.cpp
 
 SRC	:=	$(addprefix $(SRCDIR)/, $(SRC))
 
