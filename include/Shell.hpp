@@ -12,12 +12,16 @@
 #include "IComponent.hpp"
 #include <unordered_map>
 #include <functional>
+#include <signal.h>
+#include <unistd.h>
 
 namespace nts {
 	class Shell {
 		public:
 		Shell();
 		~Shell();
+		bool getisloop(void);
+		void setisloop(bool);
 		void exit(void);
 		void display(void);
 		void simulate(void);
@@ -30,6 +34,7 @@ namespace nts {
 		std::unordered_map<std::string, std::function<void(void)>> cmd;
 		std::unordered_map<std::size_t, nts::IComponent *> outputs;
 		bool isexit;
+		bool isloop;
 	};
 }
 

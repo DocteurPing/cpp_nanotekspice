@@ -7,9 +7,12 @@
 
 #include "Shell.hpp"
 
+extern nts::Shell *shell;
+
 nts::Shell::Shell()
 {
 	isexit = false;
+	isloop = true;
 	cmd["exit"] = std::bind(&nts::Shell::exit, this);
 	cmd["display"] = std::bind(&nts::Shell::display, this);
 	cmd["simulate"] = std::bind(&nts::Shell::simulate, this);
@@ -19,6 +22,16 @@ nts::Shell::Shell()
 
 nts::Shell::~Shell()
 {
+}
+
+bool nts::Shell::getisloop()
+{
+	return (isloop);
+}
+
+void nts::Shell::setisloop(bool nisloop)
+{
+	isloop = nisloop;
 }
 
 void nts::Shell::exit(void)
@@ -33,13 +46,27 @@ void nts::Shell::simulate()
 {}
 
 void nts::Shell::loop()
-{}
+{
+	while (isloop)
+	{
+		usleep(500);
+	}
+	isloop = true;
+}
 
 void nts::Shell::dump()
 {}
 
+void stoploop(int nbr)
+{
+	(void)nbr;
+	if (shell->getisloop() == true)
+		shell->setisloop(false);
+}
+
 void nts::Shell::run()
 {
+	signal(SIGINT, stoploop);
 	std::string buffer;
 	std::cout << "> ";
 	while (!isexit && std::getline(std::cin, buffer)) {
