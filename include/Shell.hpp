@@ -23,6 +23,7 @@ namespace nts {
 		void simulate(void);
 		void loop(void);
 		void dump(void);
+		void run(void);
 
 		protected:
 		private:

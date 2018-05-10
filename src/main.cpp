@@ -6,11 +6,13 @@
 */
 
 #include "nts.hpp"
+#include "Shell.hpp"
 #include <memory>
 #include "Components/ComponentManager.hpp"
 
 int main()
 {
+	nts::Shell shell;
 	nts::ComponentManager cm;
 	std::unique_ptr<nts::IComponent> c = cm.createComponent("4008", "0");
 	std::unique_ptr<nts::IComponent> d = cm.createComponent("4017", "0");
@@ -19,5 +21,6 @@ int main()
 	c.get()->dump();
 	d.get()->dump();
 	e.get()->dump();
+	shell.run();
 	return (0);
 }
