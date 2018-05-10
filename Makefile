@@ -41,6 +41,7 @@ SRC	=	main.cpp					\
 		Components/Component4094.cpp			\
 		Components/Component4514.cpp			\
 		Components/Component4801.cpp			\
+		Parser.cpp					\
 		Components/ComponentInput.cpp			\
 		Components/ComponentClock.cpp			\
 		Components/ComponentTrue.cpp			\

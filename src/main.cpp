@@ -7,16 +7,20 @@
 
 #include "nts.hpp"
 #include "Shell.hpp"
-#include <memory>
+#include "Parser.hpp"
 #include "Components/ComponentManager.hpp"
+#include <memory>
 
 nts::Shell *shell = new nts::Shell();
 
-int main()
+int main(int argc, char **argv)
 {
 	
 	nts::ComponentManager cm;
 	std::unique_ptr<nts::IComponent> c = cm.createComponent("4008", "0");
+	Parser pars("tmp");
+
+	pars.process();
 	std::unique_ptr<nts::IComponent> d = cm.createComponent("4017", "0");
 	std::unique_ptr<nts::IComponent> e = cm.createComponent("input", "0");
 
