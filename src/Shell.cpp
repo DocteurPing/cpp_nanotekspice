@@ -79,3 +79,9 @@ void nts::Shell::run()
 		std::cout << "> ";
 	}
 }
+
+void nts::Shell::setOutput(std::vector<std::pair<std::string,
+			std::unique_ptr<nts::IComponent>>> listoutput)
+{
+	listOutput = listoutput;
+}

@@ -176,3 +176,9 @@ ssize_t Parser::findComponent(
 			"Component doesn't exist", "Input File Link");
 	return (ret);
 }
+
+std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
+		Parser::getOutput()
+{
+	return (listOutput);
+}

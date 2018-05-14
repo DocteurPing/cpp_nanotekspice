@@ -21,6 +21,8 @@ class Parser {
 	Parser(const std::string &file);
 	~Parser();
 	void process();
+	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
+		getOutput();
 
 
 	private:
