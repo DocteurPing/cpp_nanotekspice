@@ -26,6 +26,7 @@ namespace nts
 		void dump() const;
 		const std::string getType();
 		const std::string getName();
+		void setPin(std::string &);
 
 		protected:
 		const std::string name;

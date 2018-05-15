@@ -59,3 +59,16 @@ const std::string nts::Component::getName()
 {
 	return (this->name);
 }
+
+void nts::Component::setPin(std::string &value)
+{
+	nts::Tristate state;
+
+	if (value == "1")
+		state = nts::TRUE;
+	else if (value == "0")
+		state = nts::FALSE;
+	else
+		state = nts::UNDEFINED;
+	this->pins[1] = state;
+}

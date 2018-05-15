@@ -10,7 +10,17 @@
 ComponentInput::ComponentInput(const std::string &pin)
 	: ComponentSpecial("Input", static_cast<nts::Tristate>(std::stoul(pin)))
 {
+	nts::Tristate state;
 
+	if (pin == "1")
+		state = nts::TRUE;
+	else if (pin == "0")
+		state = nts::FALSE;
+	else
+		state = nts::UNDEFINED;
+	pins = {
+		{1, state}
+	};
 }
 
 nts::Tristate ComponentInput::compute(size_t pin)

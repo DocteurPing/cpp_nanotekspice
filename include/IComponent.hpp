@@ -23,6 +23,7 @@ namespace nts
 		virtual void dump() const = 0;
 		virtual const std::string getType() = 0;
 		virtual const std::string getName() = 0;
+		virtual void setPin(std::string &) = 0;
 	};
 }
 

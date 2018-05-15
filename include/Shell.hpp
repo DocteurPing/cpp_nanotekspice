@@ -16,6 +16,10 @@
 #include <unistd.h>
 #include <vector>
 #include <memory>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
 
 namespace nts {
 	class Shell {
@@ -30,6 +34,8 @@ namespace nts {
 		void loop(void);
 		void dump(void);
 		void run(void);
+		void asign(std::string buffer);
+		ssize_t findComponent(const std::string &name);
 		void setOutput(std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *);
 		std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *getOutput();
 

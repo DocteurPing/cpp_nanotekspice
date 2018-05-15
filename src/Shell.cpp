@@ -78,6 +78,52 @@ void stoploop(int nbr)
 		shell.setisloop(false);
 }
 
+static std::vector<std::string> split(const std::string &s, char delim)
+{
+    std::vector<std::string> result;
+    std::istringstream iss(s);
+
+    for (std::string token; std::getline(iss, token, delim); )
+        result.push_back(std::move(token));
+    return result;
+}
+
+ssize_t nts::Shell::findComponent(
+	const std::string &name)
+{
+	ssize_t ret = -1;
+
+	for (ssize_t it = 0; it < (*this->listComponent).size(); ++it)
+	{
+		if ((*this->listComponent)[it].first == name)
+		{
+			ret = it;
+			break;
+		}
+	}
+	return (ret);
+}
+
+void nts::Shell::asign(std::string buffer)
+{
+	std::vector<std::string> liste;
+	ssize_t tmp;
+
+	liste = split(buffer, '=');
+	if (liste.size() < 2 || liste[0].length() == 0) {
+		std::cout << "Unknown Command" << std::endl;
+		return ;
+	} else {
+		tmp = findComponent(liste[0]);
+		if (tmp == -1) {
+			std::cout << "Component not found" << std::endl;
+			return ;
+		}
+		(*this->listComponent)[tmp].second.get()->setPin(liste[1]);
+		
+	}
+}
+
 void nts::Shell::run()
 {
 	signal(SIGINT, stoploop);
@@ -86,8 +132,7 @@ void nts::Shell::run()
 	while (!isexit && std::getline(std::cin, buffer)) {
 		if (buffer != "exit" && buffer != "display" &&
 		buffer != "simulate" && buffer != "loop" && buffer != "dump")
-			std::cout << "\"" << buffer << "\" : unknown command"
-			<< std::endl;
+			asign(buffer);
 		else
 			cmd[buffer]();
 		std::cout << "> ";
