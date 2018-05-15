@@ -12,3 +12,8 @@ ComponentOutput::ComponentOutput(const std::string &discarded)
 {
 	static_cast<void>(discarded);
 }
+
+nts::Tristate ComponentOutput::compute(size_t pin)
+{
+	return (pin != 1 ? nts::UNDEFINED : (links[1].second->compute(links[1].first)));
+}

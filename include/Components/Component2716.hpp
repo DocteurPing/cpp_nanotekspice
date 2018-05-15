@@ -17,6 +17,7 @@ namespace nts
 		public:
 		Component2716(const std::string &value);
 		~Component2716();
+		virtual nts::Tristate compute(size_t pin);
 	};
 }
 

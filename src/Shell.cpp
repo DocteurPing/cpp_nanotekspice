@@ -7,7 +7,7 @@
 
 #include "Shell.hpp"
 
-extern nts::Shell *shell;
+extern nts::Shell shell;
 
 nts::Shell::Shell()
 {
@@ -40,10 +40,20 @@ void nts::Shell::exit(void)
 }
 
 void nts::Shell::display()
-{}
+{
+	for (unsigned int i = 0; i < (this->output).size(); i++) {
+		std::cout << this->output[i].first << "=" <<
+			this->output[i].second << std::endl;
+	}
+}
 
 void nts::Shell::simulate()
-{}
+{
+	for (unsigned int i = 0; i < (*this->listComponent).size(); i++) {
+		if ((*this->listComponent)[i].second.get()->getType() == "Output")
+			this->output.push_back(std::make_pair((*this->listComponent)[i].first, (*this->listComponent)[i].second.get()->compute(1)));
+	}
+}
 
 void nts::Shell::loop()
 {
@@ -55,13 +65,17 @@ void nts::Shell::loop()
 }
 
 void nts::Shell::dump()
-{}
+{
+	for (unsigned int i = 0; i < (*this->listComponent).size(); i++) {
+		(*this->listComponent)[i].second.get()->dump();
+	}
+}
 
 void stoploop(int nbr)
 {
 	(void)nbr;
-	if (shell->getisloop() == true)
-		shell->setisloop(false);
+	if (shell.getisloop() == true)
+		shell.setisloop(false);
 }
 
 void nts::Shell::run()
@@ -80,8 +94,12 @@ void nts::Shell::run()
 	}
 }
 
-void nts::Shell::setOutput(std::vector<std::pair<std::string,
-			std::unique_ptr<nts::IComponent>>> listoutput)
+void nts::Shell::setOutput(std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *listcomponent)
 {
-	listOutput = listoutput;
+	this->listComponent = listcomponent;
+}
+
+std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *nts::Shell::getOutput()
+{
+	return(this->listComponent);
 }

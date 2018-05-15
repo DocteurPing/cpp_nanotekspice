@@ -15,3 +15,8 @@ nts::Component4801::Component4801(UNUSED const std::string &value)
 nts::Component4801::~Component4801()
 {
 }
+
+nts::Tristate nts::Component4801::compute(size_t pin)
+{
+	return (nts::UNDEFINED);
+}

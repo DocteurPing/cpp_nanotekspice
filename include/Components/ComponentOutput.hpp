@@ -15,6 +15,7 @@ class ComponentOutput : public ComponentSpecial
 	public:
 	ComponentOutput(const std::string &discarded = "0");
 	~ComponentOutput() = default;
+	virtual nts::Tristate compute(size_t pin);
 };
 
 #endif /* !COMPONENTOUTPUT_HPP_ */

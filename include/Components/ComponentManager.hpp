@@ -27,8 +27,6 @@
 #include "Components/Component4801.hpp"
 #include "Components/ComponentInput.hpp"
 #include "Components/ComponentClock.hpp"
-#include "Components/ComponentTrue.hpp"
-#include "Components/ComponentFalse.hpp"
 #include "Components/ComponentOutput.hpp"
 
 #define CREATE_MAP(X) \

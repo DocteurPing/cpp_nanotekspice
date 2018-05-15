@@ -15,3 +15,8 @@ nts::Component4514::Component4514(UNUSED const std::string &value)
 nts::Component4514::~Component4514()
 {
 }
+
+nts::Tristate nts::Component4514::compute(size_t pin)
+{
+	return (nts::UNDEFINED);
+}

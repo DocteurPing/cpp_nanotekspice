@@ -11,7 +11,7 @@
 #include "Components/ComponentManager.hpp"
 #include <memory>
 
-nts::Shell *shell = new nts::Shell();
+nts::Shell shell = nts::Shell();
 
 int main(int argc, char **argv)
 {
@@ -19,19 +19,14 @@ int main(int argc, char **argv)
 	nts::ComponentManager cm;
 	Parser parser(argv[1]);
 
-	parser.process();
-	shell->setOutput(parser.getOutput());
-	std::unique_ptr<nts::IComponent> c = cm.createComponent("4008", "0");
-	Parser pars("tmp");
-
-	pars.process();
-	std::unique_ptr<nts::IComponent> d = cm.createComponent("4017", "0");
-	std::unique_ptr<nts::IComponent> e = cm.createComponent("input", "0");
-
-	c.get()->dump();
-	d.get()->dump();
-	e.get()->dump();
-	shell->run();
-	delete(shell);
+	(void)argc;
+	try {
+		parser.process();
+	} catch (ParserException &e) {
+		throw e;
+	}
+	shell.setOutput(parser.getOutput());
+	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *output = shell.getOutput();
+	shell.run();
 	return (0);
 }

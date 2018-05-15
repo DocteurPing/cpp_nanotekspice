@@ -20,10 +20,12 @@ namespace nts
 		Component(const std::string &name, const std::string &type);
 		virtual ~Component();
 
-		nts::Tristate compute(std::size_t pin = 1);
+		virtual nts::Tristate compute(size_t pin = 1) = 0;
 		void setLink(std::size_t pin, nts::IComponent &other,
 			std::size_t otherPin);
 		void dump() const;
+		const std::string getType();
+		const std::string getName();
 
 		protected:
 		const std::string name;

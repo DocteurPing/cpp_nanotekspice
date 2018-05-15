@@ -12,7 +12,7 @@ ComponentClock::ComponentClock(const std::string &pin)
 {
 }
 
-nts::Tristate ComponentClock::Compute(size_t pin)
+nts::Tristate ComponentClock::compute(size_t pin)
 {
 	if (pin != 1)
 		return (nts::UNDEFINED);

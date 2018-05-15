@@ -15,7 +15,7 @@ class ComponentInput : public ComponentSpecial
 	public:
 		ComponentInput(const std::string &pin = "0");
 		virtual ~ComponentInput() = default;
-		nts::Tristate Compute(size_t pin);
+		virtual nts::Tristate compute(size_t pin);
 };
 
 #endif /* !COMPONENTINPUT_HPP_ */

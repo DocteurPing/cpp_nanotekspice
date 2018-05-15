@@ -21,6 +21,8 @@ namespace nts
 		virtual void setLink(std::size_t pin,
 			nts::IComponent &other, std::size_t otherPin) = 0;
 		virtual void dump() const = 0;
+		virtual const std::string getType() = 0;
+		virtual const std::string getName() = 0;
 	};
 }
 

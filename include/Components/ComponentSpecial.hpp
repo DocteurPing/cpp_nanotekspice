@@ -16,7 +16,7 @@ class ComponentSpecial : public nts::Component
 	ComponentSpecial(const std::string &name,
 		nts::Tristate value = nts::Tristate::UNDEFINED);
 	virtual ~ComponentSpecial() = default;
-
+	virtual nts::Tristate compute(size_t pin) = 0;
 	virtual void setValue(nts::Tristate val);
 };
 

@@ -30,15 +30,14 @@ namespace nts {
 		void loop(void);
 		void dump(void);
 		void run(void);
-		void setOutput(std::vector<std::pair<std::string,
-			std::unique_ptr<nts::IComponent>>>);
+		void setOutput(std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *);
+		std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *getOutput();
 
 		protected:
 		private:
 		std::unordered_map<std::string, std::function<void(void)>> cmd;
-		std::unordered_map<std::size_t, nts::IComponent *> outputs;
-		std::vector<std::pair<std::string,
-			std::unique_ptr<nts::IComponent>>> listOutput;
+		std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *listComponent;
+		std::vector<std::pair<std::string, nts::Tristate>> output;
 		bool isexit;
 		bool isloop;
 	};

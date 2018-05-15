@@ -26,7 +26,6 @@ void Parser::process()
 
 	for (line = this->getline(); line != ""; line = this->getline())
 	{
-		std::cout << "LINE: " << line << std::endl;
 		if (this->section == UNKNOWN && line != ".chipsets:" &&
 			line !=  ".links:")
 			throw ParserException
@@ -177,8 +176,7 @@ ssize_t Parser::findComponent(
 	return (ret);
 }
 
-std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
-		Parser::getOutput()
+std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *Parser::getOutput()
 {
-	return (listOutput);
+	return (&listComponent);
 }

@@ -16,11 +16,6 @@ nts::Component::~Component()
 {
 }
 
-nts::Tristate nts::Component::compute(std::size_t pin)
-{
-
-}
-
 void nts::Component::setLink(
 	std::size_t pin,
 	nts::IComponent &other,
@@ -53,4 +48,14 @@ void nts::Component::dump() const
 		std::cout << "Pin [" << it.first << "]:\t" << it.second <<
 			std::endl;
 	std::cout << "--------------------" << std::endl;
+}
+
+const std::string nts::Component::getType()
+{
+	return (this->type);
+}
+
+const std::string nts::Component::getName()
+{
+	return (this->name);
 }

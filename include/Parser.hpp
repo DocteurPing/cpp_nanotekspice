@@ -21,8 +21,7 @@ class Parser {
 	Parser(const std::string &file);
 	~Parser();
 	void process();
-	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
-		getOutput();
+	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *getOutput();
 
 
 	private:
@@ -31,7 +30,6 @@ class Parser {
 	void handleChipset(const std::string &line);
 	void handleLink(const std::string &line);
 	ssize_t findComponent(const std::string &name);
-	ComponentSpecial getComposentUsed(std::string);
 	typedef enum ESection
 	{
 		CHIPSETS,
@@ -42,10 +40,6 @@ class Parser {
 	std::ifstream ifs;
 	Section section = UNKNOWN;
 	nts::ComponentManager cm;
-	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
-		listInput;
-	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
-		listOutput;
 	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>>
 		listComponent;
 };
