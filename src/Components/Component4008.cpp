@@ -64,24 +64,24 @@ nts::Tristate nts::Component4008::compute(size_t pin)
 		return (UNDEFINED);
 	switch (pin) {
 		case 10 :
-			return (gate_add(pins[7], pins[6], carry));
+			return (gate_add((links[7].second->compute(links[7].first)), (links[6].second->compute(links[6].first)), carry));
 		case 11 :
-			gate_add(pins[7], pins[6], carry);
-			return (gate_add(pins[5], pins[4], carry));
+			gate_add((links[7].second->compute(links[7].first)), (links[6].second->compute(links[6].first)), carry);
+			return (gate_add((links[5].second->compute(links[5].first)), (links[4].second->compute(links[4].first)), carry));
 		case 12 :
-			gate_add(pins[7], pins[6], carry);
-			gate_add(pins[5], pins[4], carry);
-			return (gate_add(pins[3], pins[2], carry));
+			gate_add((links[7].second->compute(links[7].first)), (links[6].second->compute(links[6].first)), carry);
+			gate_add((links[5].second->compute(links[5].first)), (links[4].second->compute(links[4].first)), carry);
+			return (gate_add((links[3].second->compute(links[3].first)), (links[2].second->compute(links[2].first)), carry));
 		case 13 :
-			gate_add(pins[7], pins[6], carry);
-			gate_add(pins[5], pins[4], carry);
-			gate_add(pins[3], pins[2], carry);
-			return (gate_add(pins[1], pins[15], carry));
+			gate_add((links[7].second->compute(links[7].first)), (links[6].second->compute(links[6].first)), carry);
+			gate_add((links[5].second->compute(links[5].first)), (links[4].second->compute(links[4].first)), carry);
+			gate_add((links[3].second->compute(links[3].first)), (links[2].second->compute(links[2].first)), carry);
+			return (gate_add((links[1].second->compute(links[1].first)), (links[15].second->compute(links[15].first)), carry));
 		case 14 :
-			gate_add(pins[7], pins[6], carry);
-			gate_add(pins[5], pins[4], carry);
-			gate_add(pins[3], pins[2], carry);
-			gate_add(pins[1], pins[15], carry);
+			gate_add((links[7].second->compute(links[7].first)), (links[6].second->compute(links[6].first)), carry);
+			gate_add((links[5].second->compute(links[5].first)), (links[4].second->compute(links[4].first)), carry);
+			gate_add((links[3].second->compute(links[3].first)), (links[2].second->compute(links[2].first)), carry);
+			gate_add((links[1].second->compute(links[1].first)), (links[15].second->compute(links[15].first)), carry);
 			return (carry);
 
 	}

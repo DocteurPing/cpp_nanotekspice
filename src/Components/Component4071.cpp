@@ -38,13 +38,13 @@ nts::Tristate nts::Component4071::compute(size_t pin)
 		return (UNDEFINED);
 	switch (pin) {
 		case 3 :
-			return ((pins[1] == TRUE || pins[2] == TRUE) ? TRUE : FALSE);
+			return (((links[1].second->compute(links[1].first)) == TRUE || (links[2].second->compute(links[2].first)) == TRUE) ? TRUE : FALSE);
 		case 4 :
-			return ((pins[5] == TRUE || pins[6] == TRUE) ? TRUE : FALSE);
+			return (((links[5].second->compute(links[5].first)) == TRUE || (links[6].second->compute(links[6].first)) == TRUE) ? TRUE : FALSE);
 		case 10 :
-			return ((pins[8] == TRUE || pins[9] == TRUE) ? TRUE : FALSE);
+			return (((links[8].second->compute(links[8].first)) == TRUE || (links[9].second->compute(links[9].first)) == TRUE) ? TRUE : FALSE);
 		case 11 :
-			return ((pins[12] == TRUE || pins[13] == TRUE) ? TRUE : FALSE);
+			return (((links[12].second->compute(links[12].first)) == TRUE || (links[13].second->compute(links[13].first)) == TRUE) ? TRUE : FALSE);
 	}
 	return(UNDEFINED);
 }
