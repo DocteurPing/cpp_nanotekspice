@@ -36,6 +36,7 @@ namespace nts {
 		void run(void);
 		void asign(std::string buffer);
 		ssize_t findComponent(const std::string &name);
+		ssize_t findComponentOutput(const std::string &name);
 		void setOutput(std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *);
 		std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *getOutput();
 

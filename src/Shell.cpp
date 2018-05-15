@@ -49,9 +49,14 @@ void nts::Shell::display()
 
 void nts::Shell::simulate()
 {
+	ssize_t it;
 	for (unsigned int i = 0; i < (*this->listComponent).size(); i++) {
-		if ((*this->listComponent)[i].second.get()->getType() == "Output")
-			this->output.push_back(std::make_pair((*this->listComponent)[i].first, (*this->listComponent)[i].second.get()->compute(1)));
+		if ((*this->listComponent)[i].second.get()->getType() == "Output") {
+			if (it = findComponentOutput((*this->listComponent)[i].first) == -1)
+				this->output.push_back(std::make_pair((*this->listComponent)[i].first, (*this->listComponent)[i].second.get()->compute(1)));
+			else
+				this->output[it].second = (*this->listComponent)[i].second.get()->compute(1);
+		}
 	}
 }
 
@@ -96,6 +101,22 @@ ssize_t nts::Shell::findComponent(
 	for (ssize_t it = 0; it < (*this->listComponent).size(); ++it)
 	{
 		if ((*this->listComponent)[it].first == name)
+		{
+			ret = it;
+			break;
+		}
+	}
+	return (ret);
+}
+
+ssize_t nts::Shell::findComponentOutput(
+	const std::string &name)
+{
+	ssize_t ret = -1;
+
+	for (ssize_t it = 0; it < (this->output).size(); ++it)
+	{
+		if ((this->output)[it].first == name)
 		{
 			ret = it;
 			break;
