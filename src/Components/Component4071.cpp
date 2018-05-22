@@ -10,22 +10,6 @@
 nts::Component4071::Component4071(UNUSED const std::string &value)
 	: ComponentChipset("4071", 14)
 {
-	pins = {
-		{1, UNDEFINED},
-		{2, UNDEFINED},
-		{3, UNDEFINED},
-		{4, UNDEFINED},
-		{5, UNDEFINED},
-		{6, UNDEFINED},
-		{7, UNDEFINED},
-		{8, UNDEFINED},
-		{9, UNDEFINED},
-		{10, UNDEFINED},
-		{11, UNDEFINED},
-		{12, UNDEFINED},
-		{13, UNDEFINED},
-		{14, UNDEFINED}
-	};
 }
 
 nts::Component4071::~Component4071()
