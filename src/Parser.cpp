@@ -92,10 +92,16 @@ void Parser::handleInput(const std::string &line)
 	}
 	else
 	{
+		try {
 		if (this->section == CHIPSETS)
 			this->handleChipset(line);
 		else if (this->section == LINKS)
 			this->handleLink(line);
+		}
+		catch (ParserException &e)
+		{
+			throw e;
+		}
 	}
 
 }

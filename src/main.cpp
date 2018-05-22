@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	try {
 		parser.process();
 	} catch (ParserException &e) {
-		throw e;
+		std::cerr << "lel no" << std::endl;
 	}
 	shell.setOutput(parser.getOutput());
 	shell.run();

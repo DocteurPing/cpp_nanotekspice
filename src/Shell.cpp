@@ -42,8 +42,11 @@ void nts::Shell::exit(void)
 void nts::Shell::display()
 {
 	for (unsigned int i = 0; i < (this->output).size(); i++) {
-		std::cout << this->output[i].first << "=" <<
-			this->output[i].second << std::endl;
+		std::cout << this->output[i].first << "=";
+		if (this->output[i].second == nts::UNDEFINED)
+			std::cout << "\"U\"" << std::endl;
+		else
+			std::cout << this->output[i].second << std::endl;
 	}
 }
 
@@ -149,6 +152,8 @@ void nts::Shell::run()
 {
 	signal(SIGINT, stoploop);
 	std::string buffer;
+	cmd["simulate"]();
+	cmd["display"]();
 	std::cout << "> ";
 	while (!isexit && std::getline(std::cin, buffer)) {
 		if (buffer != "exit" && buffer != "display" &&
