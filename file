@@ -1,13 +1,10 @@
 #three  inputs  and  gate sfs
 .chipsets:
-input    i0
-input    i1
-input    i2
-4081     and0
-output   out
+input a
+input b
+4071 or
+output s
 .links:
-i0:1     and0:1
-i1:1     and0:2
-and0:3   and0:5
-i2:1     and0:6
-and0:11   out:1
+a:1 or:1
+b:1 or:2
+or:3 s:1
