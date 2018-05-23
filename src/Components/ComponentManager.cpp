@@ -26,6 +26,8 @@ nts::ComponentManager::ComponentManager()
 	this->createMap["input"] = CREATE_MAP(ComponentInput);
 	this->createMap["clock"] = CREATE_MAP(ComponentClock);
 	this->createMap["output"] = CREATE_MAP(ComponentOutput);
+	this->createMap["true"] = CREATE_MAP(ComponentTrue);
+	this->createMap["false"] = CREATE_MAP(ComponentFalse);
 }
 
 nts::ComponentManager::~ComponentManager()

@@ -40,16 +40,16 @@ nts::Tristate nts::Component4081::compute(size_t pin)
 				to_return = (this->pins[5] == TRUE && this->pins[6] == TRUE) ? TRUE : FALSE;
 			break;
 		case 10 :
-			this->pins[8] = (links[1].second->compute(links[8].first));
-			this->pins[9] = (links[2].second->compute(links[9].first));
+			this->pins[8] = (links[8].second->compute(links[8].first));
+			this->pins[9] = (links[9].second->compute(links[9].first));
 			if (this->pins[8] == UNDEFINED || this->pins[9] == UNDEFINED)
 				to_return = UNDEFINED;
 			else
 				to_return = (this->pins[8] == TRUE && this->pins[9] == TRUE) ? TRUE : FALSE;
 			break;
 		case 11 :
-			this->pins[12] = (links[1].second->compute(links[12].first));
-			this->pins[13] = (links[2].second->compute(links[13].first));
+			this->pins[12] = (links[12].second->compute(links[12].first));
+			this->pins[13] = (links[13].second->compute(links[13].first));
 			if (this->pins[12] == UNDEFINED || this->pins[13] == UNDEFINED)
 				to_return = UNDEFINED;
 			else

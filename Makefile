@@ -40,10 +40,12 @@ SRC	=	main.cpp					\
 		Components/Component4094.cpp			\
 		Components/Component4514.cpp			\
 		Components/Component4801.cpp			\
-		Parser.cpp					\
 		Components/ComponentInput.cpp			\
 		Components/ComponentClock.cpp			\
 		Components/ComponentOutput.cpp			\
+		Components/ComponentTrue.cpp			\
+		Components/ComponentFalse.cpp			\
+		Parser.cpp					\
 		Shell.cpp
 
 SRC	:=	$(addprefix $(SRCDIR)/, $(SRC))

@@ -28,6 +28,8 @@
 #include "Components/ComponentInput.hpp"
 #include "Components/ComponentClock.hpp"
 #include "Components/ComponentOutput.hpp"
+#include "Components/ComponentTrue.hpp"
+#include "Components/ComponentFalse.hpp"
 
 #define CREATE_MAP(X) \
 	(std::bind(&nts::ComponentManager::create<X>, \
