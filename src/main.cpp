@@ -29,9 +29,8 @@ int main(int argc, char **argv)
 		ret = 0;
 	} catch (ParserException &e) {
 		std::cerr << "Parsing error " << e.what() << " " << e.where() << std::endl;
-	} catch (std::exception &e)
-	{
+	} catch (std::exception &e) {
 		std::cerr << "Error: " << e.what() << " " << std::endl;
 	}
-	return (0);
+	return (ret);
 }
