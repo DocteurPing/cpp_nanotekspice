@@ -15,17 +15,23 @@ nts::Shell shell = nts::Shell();
 
 int main(int argc, char **argv)
 {
-	
+
 	nts::ComponentManager cm;
-	Parser parser(argv[1]);
+	Parser parser;
+	int ret = 84;
 
 	(void)argc;
 	try {
+		parser.setFile(argv[1]);
 		parser.process();
+		shell.setOutput(parser.getOutput());
+		shell.run();
+		ret = 0;
 	} catch (ParserException &e) {
 		std::cerr << "Parsing error " << e.what() << " " << e.where() << std::endl;
+	} catch (std::exception &e)
+	{
+		std::cerr << "Error: " << e.what() << " " << std::endl;
 	}
-	shell.setOutput(parser.getOutput());
-	shell.run();
 	return (0);
 }

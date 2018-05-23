@@ -18,8 +18,11 @@
 
 class Parser {
 	public:
+	Parser();
 	Parser(const std::string &file);
 	~Parser();
+
+	void setFile(const std::string &file);
 	void process();
 	std::vector<std::pair<std::string, std::unique_ptr<nts::IComponent>>> *getOutput();
 

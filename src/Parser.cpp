@@ -7,11 +7,21 @@
 
 #include "Parser.hpp"
 
+Parser::Parser()
+{
+
+}
+
 Parser::Parser(const std::string &file)
 {
-	this->ifs.open(file, std::ios::in);
-	if (!this->ifs.is_open())
-		throw ParserException("Could not open file.", "Input File");
+	try
+	{
+		this->setFile(file);
+	}
+	catch (ParserException &e)
+	{
+		throw e;
+	}
 }
 
 Parser::~Parser()
@@ -19,6 +29,12 @@ Parser::~Parser()
 	this->ifs.close();
 }
 
+void Parser::setFile(const std::string &file)
+{
+	this->ifs.open(file, std::ios::in);
+	if (!this->ifs.is_open())
+		throw ParserException("Could not open file.", "Input File");
+}
 
 void Parser::process()
 {
