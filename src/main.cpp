@@ -25,6 +25,8 @@ int main(int argc, char **argv)
 		parser.setFile(argv[1]);
 		parser.process();
 		shell.setOutput(parser.getOutput());
+		for (int i = 2; i < argc; i++)
+			shell.asign(argv[i]);
 		shell.run();
 		ret = 0;
 	} catch (ParserException &e) {
